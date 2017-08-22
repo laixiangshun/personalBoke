@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCD539F1-3354-45A1-B251-E4C5E720F4FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NinesKy.DAL</RootNamespace>
+    <AssemblyName>NinesKy.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticleDaoImpl\ArticleRepository.cs" />
+    <Compile Include="ArticleDaoImpl\AttachmentRepository.cs" />
+    <Compile Include="ArticleDaoImpl\CategoryRepository.cs" />
+    <Compile Include="ArticleDaoImpl\CommonModelRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ContextFactory.cs" />
+    <Compile Include="Migrations\201708210913077_InitialCreate.cs" />
+    <Compile Include="Migrations\201708210913077_InitialCreate.Designer.cs">
+      <DependentUpon>201708210913077_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220155140_Init.cs" />
+    <Compile Include="Migrations\201708220155140_Init.Designer.cs">
+      <DependentUpon>201708220155140_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220428008_Init1.cs" />
+    <Compile Include="Migrations\201708220428008_Init1.Designer.cs">
+      <DependentUpon>201708220428008_Init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220439570_Init2.cs" />
+    <Compile Include="Migrations\201708220439570_Init2.Designer.cs">
+      <DependentUpon>201708220439570_Init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708220553485_Init3.cs" />
+    <Compile Include="Migrations\201708220553485_Init3.Designer.cs">
+      <DependentUpon>201708220553485_Init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MyDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RepositoryFactory.cs" />
+    <Compile Include="UserDAL\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NinesKy.IDAL\NinesKy.IDAL.csproj">
+      <Project>{559c054c-0882-4e8f-a155-ecba887daaee}</Project>
+      <Name>NinesKy.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NinesKy.Models\NinesKy.Models.csproj">
+      <Project>{222dbcee-c0da-4b02-94f4-c15ffae6e4f4}</Project>
+      <Name>NinesKy.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708210913077_InitialCreate.resx">
+      <DependentUpon>201708210913077_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220155140_Init.resx">
+      <DependentUpon>201708220155140_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220428008_Init1.resx">
+      <DependentUpon>201708220428008_Init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220439570_Init2.resx">
+      <DependentUpon>201708220439570_Init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708220553485_Init3.resx">
+      <DependentUpon>201708220553485_Init3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>我的资料</h3>
+    </div>
+    <div class="panel-body" id="sidbar">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="@Url.Action("Details")"><span class="glyphicon glyphicon-user">修改我的资料</span></a></li>
+            <li><a href="@Url.Action("ChangePassword")"><span class="glyphicon glyphicon-log-out">修改密码</span></a></li>
+            <li><a href="@Url.Action("Logout")"><span class="glyphicon glyphicon-log-out">退出登录</span></a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $("#sidbar ul li").click(function () {
+        $(this).siblings('li').removeClass("active");
+        $(this).addClass("active");
+    })
+</script>

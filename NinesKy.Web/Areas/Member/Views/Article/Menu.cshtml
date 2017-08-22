@@ -1,0 +1,18 @@
+﻿<div class="easyui-accordion">
+    <div title="文章管理">
+        <ul id="navmenu" class="nav nav-pills nav-stacked">
+            <li> <a href="javascript:void()" data-options="'icons':'icon-page-attach','title': '添加文章', 'href': '@Url.Action("Add", "Article")'"><span class="glyphicon glyphicon-pencil"> 添加文章</span></a></li>
+            <li> <a href="javascript:void()" data-options="'icons':'icon-folder-page','title': '全部文章', 'href': '@Url.Action("List", "Article")'"><span class="glyphicon glyphicon-list"> 文章列表</span></a></li>
+            <li> <a href="javascript:void()" data-options="'icons':'icon-folder-user','title': '我的文章', 'href': '@Url.Action("MyList", "Article")'"><span class="glyphicon glyphicon-list-alt"> 我的文章</span></a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    $("#navmenu a").click(function () {
+        var _optstr = "{" + $(this).attr("data-options") + "}";
+        _optstr = _optstr.replace(/'/g, "\"");
+        var _opts = $.parseJSON(_optstr);
+        addTab(_opts.title, _opts.href, _opts.icons)
+        return false;
+    })
+</script>

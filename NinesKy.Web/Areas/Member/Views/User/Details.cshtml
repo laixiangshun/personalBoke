@@ -1,0 +1,75 @@
+﻿@model NinesKy.Models.User
+@{
+    ViewBag.Title = "我的资料";
+}
+<style type="text/css">
+    input[type='text'],input[type='email'] {
+        height:35px;
+        width:250px;
+        border-radius:5px;
+        display:inline-block;
+        line-height:30px;
+        overflow:hidden;
+    }
+</style>
+
+<div class="row" style="margin-top:20px;">
+    <div class="col-md-3 col-sm-4">@Html.Action("Menu")</div>
+    <div class="col-md-9 col-sm-8">
+        <ol class="breadcrumb">
+            <li><span class="glyphicon glyphicon-home"><a>会员中心</a></span></li>
+            <li><a>个人中心</a></li>
+            <li>修改资料</li>
+        </ol>
+
+        @using (Html.BeginForm("Modify","User",FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h4>用户资料</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(u=>u.UserID)
+
+                <div class="form-group">
+                    @Html.LabelFor(u => u.UserName, new { @class="control-lable col-md-2"})
+                    <div class="col-md-10">
+                        @Html.DisplayFor(u=>u.UserName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(u => u.DisplayName, new { @class="control-lable col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(u=>u.DisplayName)
+                        @Html.ValidationMessageFor(u=>u.DisplayName)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-lable col-md-2">用户组</label>
+                    <div class="col-md-10">
+                        @* 延迟加载 *@
+                        @foreach (var _relation in Model.UserRoleRelations)
+                        {
+                            <span>@_relation.Role.Name</span><br />
+                        }
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(u => u.Emial, new { @class="control-lable col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(u=>u.Emial)
+                        @Html.ValidationMessageFor(u=>u.Emial)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="修改" class="btn btn-default btn-success"/>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
