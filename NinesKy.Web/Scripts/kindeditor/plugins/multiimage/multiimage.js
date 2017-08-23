@@ -42,7 +42,6 @@ K.extend(KSWFUpload, {
 			K('.ke-status > div', itemDiv).hide();
 			K('.ke-message', itemDiv).addClass('ke-error').show().html(K.escape(msg));
 		}
-
 		var settings = {
 			debug : false,
 			upload_url : options.uploadUrl,
@@ -119,7 +118,7 @@ K.extend(KSWFUpload, {
 			}
 		};
 		self.swfu = new SWFUpload(settings);
-
+        
 		K('.ke-swfupload-startupload input', self.div).click(function() {
 			self.swfu.startUpload();
 		});
@@ -205,7 +204,7 @@ KindEditor.plugin('multiimage', function(K) {
 		imageUploadLimit = K.undef(self.imageUploadLimit, 20),
 		filePostName = K.undef(self.filePostName, 'imgFile'),
 		lang = self.lang(name + '.');
-
+	alert(uploadJson);
 	self.plugin.multiImageDialog = function(options) {
 		var clickFn = options.clickFn,
 			uploadDesc = K.tmpl(lang.uploadDesc, {uploadLimit : imageUploadLimit, sizeLimit : imageSizeLimit});
@@ -244,8 +243,8 @@ KindEditor.plugin('multiimage', function(K) {
 
 		var swfupload = K.swfupload({
 			container : K('.swfupload', div),
-			buttonImageUrl : imgPath + (self.langType == 'zh-CN' ? 'select-files-zh-CN.png' : 'select-files-en.png'),
-			buttonWidth : self.langType == 'zh-CN' ? 72 : 88,
+			buttonImageUrl : imgPath + (self.langType == 'zh_CN' ? 'select-files-zh_CN.png' : 'select-files-en.png'),
+			buttonWidth : self.langType == 'zh_CN' ? 72 : 88,
 			buttonHeight : 23,
 			fileIconUrl : imgPath + 'image.png',
 			uploadDesc : uploadDesc,

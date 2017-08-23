@@ -15,5 +15,15 @@ namespace NinesKy.Web.Areas.Member.Controllers
         {
             categoryService = new CategoryService();
         }
+
+        /// <summary>
+        /// 获取json格式栏目树
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ActionResult JsonTree(string model)
+        {
+            return Json(null, JsonRequestBehavior.AllowGet);
+        }
 	}
 }

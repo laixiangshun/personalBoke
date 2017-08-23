@@ -12,6 +12,10 @@ namespace NinesKy.IDAL
     /// </summary>
     public interface InterfaceBaseRepository<T>
     {
+        /// <summary>
+        /// 数据实体列表
+        /// </summary>
+        IQueryable<T> Entities { get; }
         T Add(T entity);
 
         /// <summary>

@@ -164,6 +164,7 @@
     <Compile Include="Areas\Member\Controllers\HomeController.cs" />
     <Compile Include="Areas\Member\Controllers\UserController.cs" />
     <Compile Include="Areas\Member\MemberAreaRegistration.cs" />
+    <Compile Include="Areas\Member\Models\AttachmentManagerViewModel.cs" />
     <Compile Include="Areas\Member\Models\ChangePasswordViewModel.cs" />
     <Compile Include="Areas\Member\Models\LoginViewModel.cs" />
     <Compile Include="Areas\Member\Models\RegisterViewModel.cs" />
@@ -250,6 +251,7 @@
     <Content Include="Areas\Member\Content\images\Thumbs.db" />
     <Content Include="Areas\Member\Views\Home\Menu.cshtml" />
     <Content Include="Areas\Member\Views\Article\Menu.cshtml" />
+    <Content Include="Config\Upload.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -259,14 +261,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\kindeditor\kindeditor-all-min.js" />
-    <Content Include="Scripts\kindeditor\kindeditor-all.js" />
+    <Content Include="Scripts\kindeditor\kindeditor-min.js" />
     <Content Include="Scripts\kindeditor\lang\ar.js" />
     <Content Include="Scripts\kindeditor\lang\en.js" />
     <Content Include="Scripts\kindeditor\lang\ko.js" />
-    <Content Include="Scripts\kindeditor\lang\ru.js" />
-    <Content Include="Scripts\kindeditor\lang\zh-CN.js" />
-    <Content Include="Scripts\kindeditor\lang\zh-TW.js" />
+    <Content Include="Scripts\kindeditor\lang\zh_CN.js" />
+    <Content Include="Scripts\kindeditor\lang\zh_TW.js" />
     <Content Include="Scripts\kindeditor\plugins\anchor\anchor.js" />
     <Content Include="Scripts\kindeditor\plugins\autoheight\autoheight.js" />
     <Content Include="Scripts\kindeditor\plugins\baidumap\baidumap.js" />
@@ -419,7 +419,6 @@
     <Content Include="Scripts\kindeditor\plugins\filemanager\images\folder-16.gif" />
     <Content Include="Scripts\kindeditor\plugins\filemanager\images\folder-64.gif" />
     <Content Include="Scripts\kindeditor\plugins\filemanager\images\go-up.gif" />
-    <Content Include="Scripts\kindeditor\plugins\fixtoolbar\fixtoolbar.js" />
     <Content Include="Scripts\kindeditor\plugins\flash\flash.js" />
     <Content Include="Scripts\kindeditor\plugins\image\image.js" />
     <Content Include="Scripts\kindeditor\plugins\image\images\align_left.gif" />
@@ -434,7 +433,7 @@
     <Content Include="Scripts\kindeditor\plugins\media\media.js" />
     <Content Include="Scripts\kindeditor\plugins\multiimage\images\image.png" />
     <Content Include="Scripts\kindeditor\plugins\multiimage\images\select-files-en.png" />
-    <Content Include="Scripts\kindeditor\plugins\multiimage\images\select-files-zh-CN.png" />
+    <Content Include="Scripts\kindeditor\plugins\multiimage\images\select-files-zh_CN.png" />
     <Content Include="Scripts\kindeditor\plugins\multiimage\images\swfupload.swf" />
     <Content Include="Scripts\kindeditor\plugins\multiimage\multiimage.js" />
     <Content Include="Scripts\kindeditor\plugins\pagebreak\pagebreak.js" />

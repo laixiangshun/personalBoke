@@ -17,7 +17,10 @@ namespace NinesKy.DAL
     {
         protected MyDbContext dbContext = ContextFactory.GetCurrentContext();
 
-
+        public IQueryable<T> Entities
+        {
+            get { return dbContext.Set<T>(); }
+        }
 
         public T Add(T entity)
         {

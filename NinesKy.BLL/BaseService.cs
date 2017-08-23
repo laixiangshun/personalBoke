@@ -30,5 +30,6 @@ namespace NinesKy.BLL
         {
             return CurrentRepository.Delete(entity);
         }
+
     }
 }
