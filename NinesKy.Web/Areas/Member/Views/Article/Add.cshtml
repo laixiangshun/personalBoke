@@ -2,13 +2,43 @@
 @section Scripts{
     <script type="text/javascript" src="~/Scripts/Kindeditor/kindeditor-min.js"></script>
     <script type="text/javascript">
+        //编辑框
         KindEditor.ready(function (K) {
             window.editor = K.create("#Content", {
                 height: "500px",
-                uploadJson: '@Url.Action("Upload","Attachment")',
-                fileManagerJson: '@Url.Action("FileManagerJson","Attachment")',
-                allowFileManager:true,
+                uploadJson: '@Url.Action("Upload","Attachment")',//上传附件
+                fileManagerJson: '@Url.Action("FileManagerJson","Attachment")',//文件管理
+                allowFileManager:true,//启用文件管理
                 formatUploadUrl:false
+            });
+            //首页图片
+            var editor2 = K.editor({
+                fileManagerJson: '@Url.Action("FileManagerJson", "Attachment")'
+            });
+            $("#btn_picselect").click(function () {
+                editor2.loadPlugin("filemanager", function () {
+                    editor2.plugin.filemanagerDialog({
+                        viewType: "VIEW",
+                        dirName: "image",
+                        clickFn: function (url, title) {
+                            $.ajax({
+                                type: "post",
+                                url: "@Url.Action("CreateThumbnail","Attachment")",
+                                async: false,
+                                data: { originalPicture: url },
+                                success: function (data) {
+                                    if (data == null) {
+                                        alert("生成缩略图失败");
+                                    } else {
+                                        K("#imgpreview").attr("src", data);
+                                        K("#CommonModel_DefaultPicUrl").val(data);
+                                    }
+                                    editor2.hideDialog();
+                                }
+                            });
+                        }
+                    });
+                });
             });
         });
     </script>
@@ -26,13 +56,13 @@
         <hr />
         @Html.ValidationSummary(true)
     
-         <div class="form-group">
+         @*<div class="form-group">
             <label class="control-label col-sm-2" for="CommonModel_CategoryID">栏目</label>
             <div class="col-sm-10">
                 <input id="CommonModel_CategoryID" name="CommonModel.CategoryID" data-options="url:'@Url.Action("JsonTree", "Category", new { model="Article" })'" class="easyui-combotree" style="height: 34px; width: 280px;" />
                        @Html.ValidationMessageFor(model => model.CommonModel.CategoryID)
             </div>
-        </div>
+        </div>*@
         <div class="form-group">
             @Html.LabelFor(model => model.CommonModel.Title, new { @class = "control-label col-sm-2" })
             <div class="col-sm-10">

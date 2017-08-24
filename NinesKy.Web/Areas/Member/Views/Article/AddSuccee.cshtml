@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Areas/Member/Views/Shared/_Layout.cshtml";
+}
+@model NinesKy.Models.Article.Article
+
+<div class="easyui-panel" title="添加文章成功" style="width:500px;text-align:center;">
+    <dl>
+        <dt>@Model.CommonModel.Title 添加成功</dt>
+        <dd>
+            <a href="@Url.Action("Add","Article")" class="easyui-linkbutton">继续添加</a>
+            <a class="easyui-linkbutton" href="#" id="btn_close">关闭</a>
+        </dd>
+    </dl>
+</div>
+<script type="text/javascript">
+    $("#btn_close").click(function () {
+        parent.$("#mainTabs").tabs('close', '添加文章');
+    });
+</script>

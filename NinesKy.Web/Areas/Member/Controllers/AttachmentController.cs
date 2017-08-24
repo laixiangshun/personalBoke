@@ -138,6 +138,7 @@ namespace NinesKy.Web.Areas.Member.Controllers
         /// </summary>
         /// <param name="originalPicture">原图地址</param>
         /// <returns>缩略图地址。生成失败返回null</returns>
+        [HttpPost]
         public ActionResult CreateThumbnail(string originalPicture)
         {
             //原图为缩略图直接返回其地址
